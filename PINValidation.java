@@ -17,10 +17,25 @@ public class PINValidation {
             System.out.println("The pin code entered is incorrect.");
         }
     }
+    /*
+    Use Case 2: Regex pattern to prevent special and alphanumeric characters at beginning
+     of pin code
+    */
+    public void prvntSplCharAtBeginPINValidation(){
+        Pattern pattern = Pattern.compile("[^a-zA-Z~!@#$%^&*()][1-9][0-9]{5}");
+        Matcher matcher = pattern.matcher("A400088");
+        boolean pinCodeValidated = matcher.matches();
+
+        if (pinCodeValidated){
+            System.out.println("The given pin code is correct.");
+        } else{
+            System.out.println("The pin code entered is incorrect.");
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Bridgelabz!");
         System.out.println("Today we shall perform PIN code validation using Regular Expressions.");
         PINValidation pinv = new PINValidation();
-        pinv.sixDigitPINValidation(400088);
+        pinv.prvntSplCharAtBeginPINValidation();
     }
 }
