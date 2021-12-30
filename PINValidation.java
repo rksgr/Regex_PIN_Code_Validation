@@ -32,10 +32,25 @@ public class PINValidation {
             System.out.println("The pin code entered is incorrect.");
         }
     }
+    /*
+    Use Case 3: Regex pattern to prevent special and alphanumeric characters at end
+     of pin code
+    */
+    public void prvntSplCharAtEndPINValidation(){
+        Pattern pattern = Pattern.compile("[1-9][0-9]{5}[^a-zA-Z~!@#$%^&*()]");
+        Matcher matcher = pattern.matcher("400088 ");
+        boolean pinCodeValidated = matcher.matches();
+
+        if (pinCodeValidated){
+            System.out.println("The given pin code is correct.");
+        } else{
+            System.out.println("The pin code entered is incorrect.");
+        }
+    }
     public static void main(String[] args) {
         System.out.println("Welcome to Bridgelabz!");
         System.out.println("Today we shall perform PIN code validation using Regular Expressions.");
         PINValidation pinv = new PINValidation();
-        pinv.prvntSplCharAtBeginPINValidation();
+        pinv.prvntSplCharAtEndPINValidation();
     }
 }
